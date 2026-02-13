@@ -1,64 +1,76 @@
-<<<<<<< HEAD
-# PortfolioAngular
+# Portfolio Angular - Alejandro Garcia-Mauriño Salas
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Portfolio personal desarrollado con Angular, Bootstrap y TypeScript.
 
-## Development server
+## 🚀 Tecnologías
 
-To start a local development server, run:
+- Angular 19
+- TypeScript
+- Bootstrap 5
+- SCSS
+- LocalStorage
 
+## 📦 Instalación
 ```bash
+# Clonar repositorio
+git clone https://github.com/Alejandrokiller22/Proyecto-Final---App-Angular.git
+
+# Instalar dependencias
+npm install
+
+# Ejecutar aplicación
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Abre tu navegador en: `http://localhost:4200`
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+## 📂 Estructura
+```
+src/app/
+├── components/     # Navbar, Footer, Project-Card
+├── pages/          # Home, Portfolio, Contact
+├── services/       # Portfolio, Storage
+├── interfaces/     # TypeScript interfaces
+└── models/         # User preferences
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## ✨ Características
 
-```bash
-ng generate --help
-```
+✅ Navegación con Angular Router  
+✅ Componentes reutilizables  
+✅ Formularios reactivos con validaciones  
+✅ LocalStorage para preferencias  
+✅ Música de fondo activable  
+✅ Video de presentación  
+✅ Búsqueda de proyectos  
+✅ Diseño responsive  
 
-## Building
+## 🎯 Funcionalidades
 
-To build the project run:
+### Componentización
+- Navbar con control de audio
+- Footer dinámico
+- Tarjetas de proyecto reutilizables
 
-```bash
-ng build
-```
+### Servicios
+- PortfolioService: gestión de proyectos
+- StorageService: localStorage seguro
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### TypeScript
+- Interfaces fuertemente tipadas
+- Enums para temas
+- Manejo de errores
 
-## Running unit tests
+### Formularios
+- Validaciones en tiempo real
+- Auto-guardado en localStorage
+- Mensajes de error personalizados
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 👨‍💻 Autor
 
-```bash
-ng test
-```
+Alejandro Garcia-Mauriño Salas  
+GitHub: [@Alejandrokiller22](https://github.com/Alejandrokiller22)
 
-## Running end-to-end tests
+## 📄 Licencia
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# Proyecto-Final---App-Angular
-En este repositorio pasaremos el antiguo porfolio personal de HTML a Angular.
->>>>>>> be03f50efec703c1c2e6bf1e4bd41a27d52cd971
+MIT License - 2026
