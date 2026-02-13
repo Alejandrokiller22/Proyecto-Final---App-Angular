@@ -1,0 +1,13 @@
+footer {
+  background-color: #f8f9fa;
+  border-top: 2px solid var(--primary-color);
+  margin-top: auto;
+
+  p {
+    color: var(--text-dark);
+  }
+
+  .text-muted {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,72 @@
+<section class="home-section container my-5 fade-in">
+  <div class="row align-items-center">
+    <!-- Imagen de perfil -->
+    <div class="col-md-4 text-center mb-4 mb-md-0">
+      <img
+        src="/logo.png"
+        alt="Alejandro Garcia-Mauriño"
+        class="profile-image img-fluid rounded-circle shadow"
+        (error)="onImageError($event)">
+    </div>
+
+    <!-- Información personal -->
+    <div class="col-md-8">
+      <h2>Sobre mí</h2>
+      <p class="lead">
+        Hola, soy <strong>Alejandro Garcia-Mauriño Salas</strong>, estudiante de desarrollo web.
+        Me gusta crear páginas web y aprender nuevas tecnologías como HTML, CSS, Bootstrap y ahora Angular.
+      </p>
+      <p>
+        Este es mi portfolio profesional desarrollado con Angular, donde aplico los principios de
+        componentización, enrutamiento, servicios y almacenamiento web.
+      </p>
+
+      <!-- Habilidades -->
+      <div class="mt-4">
+        <h4>Tecnologías que manejo:</h4>
+        <div class="skills-container">
+          <span class="badge bg-primary me-2 mb-2" *ngFor="let skill of skills">
+            {{ skill }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="mt-4">
+        <a routerLink="/portfolio" class="btn btn-primary me-2">
+          Ver mis proyectos
+        </a>
+        <a routerLink="/contact" class="btn btn-outline-primary">
+          Contactar
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de bienvenida -->
+  <div class="modal fade" id="welcomeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">¡Bienvenido a mi Portfolio!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>¿Quieres activar la música de fondo?</p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="enableAudio()"
+            data-bs-dismiss="modal">
+            Sí, activar
+          </button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            No, gracias
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

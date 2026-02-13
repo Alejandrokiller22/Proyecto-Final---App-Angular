@@ -1,0 +1,39 @@
+<div class="card shadow-sm h-100 project-card fade-in" *ngIf="project">
+  <!-- Imagen del proyecto -->
+  <img
+    [src]="project.imagen || '/logo.png'"
+    class="card-img-top"
+    [alt]="project.nombre"
+    (error)="onImageError($event)">
+
+  <div class="card-body d-flex flex-column">
+    <!-- Nombre del proyecto -->
+    <h5 class="card-title text-primary">{{ project.nombre | uppercase }}</h5>
+
+    <!-- Descripción -->
+    <p class="card-text flex-grow-1">{{ project.descripcion }}</p>
+
+    <!-- Tecnologías -->
+    <div class="mb-3" *ngIf="project.tecnologias && project.tecnologias.length > 0">
+      <span
+        class="badge bg-primary me-1 mb-1"
+        *ngFor="let tech of project.tecnologias">
+        {{ tech }}
+      </span>
+    </div>
+
+    <!-- Fecha -->
+    <p class="text-muted small" *ngIf="project.fecha">
+      <strong>Fecha:</strong> {{ project.fecha | date:'dd/MM/yyyy' }}
+    </p>
+
+    <!-- Botón -->
+    <a
+      [href]="project.enlace"
+      target="_blank"
+      class="btn btn-primary mt-auto"
+      (click)="onProjectClick()">
+      Ver proyecto →
+    </a>
+  </div>
+</div>

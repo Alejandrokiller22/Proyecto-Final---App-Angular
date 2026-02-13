@@ -1,0 +1,148 @@
+<section class="contact-section container my-5 fade-in">
+  <h2 class="text-center mb-5">Contacto</h2>
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+
+      <!-- Botón multimedia -->
+      <div class="mb-4">
+        <button
+          class="btn btn-secondary"
+          (click)="toggleMultimedia()">
+          {{ showMultimedia ? 'Ocultar' : 'Mostrar' }} información multimedia
+        </button>
+      </div>
+
+      <!-- Sección multimedia -->
+      <div class="multimedia-section mb-4" *ngIf="showMultimedia">
+        <div class="card">
+          <div class="card-body">
+            <h5>Video presentación</h5>
+            <p>Aquí puedes ver mi video-presentación y más detalles multimedia.</p>
+
+            <button
+              class="btn btn-primary mb-3"
+              (click)="playVideo()">
+              ▶️ Reproducir video
+            </button>
+
+            <video
+              #videoPlayer
+              width="100%"
+              controls
+              preload="metadata"
+              poster="/poster.jpg"
+              class="rounded">
+              <source src="/Video_Portfolio_Profesional.mp4" type="video/mp4">
+              Tu navegador no soporta el elemento video.
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div class="card shadow">
+        <div class="card-body">
+          <h4 class="mb-4">Envíame un mensaje</h4>
+
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+            <!-- Nombre -->
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre *</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                formControlName="nombre"
+                [class.is-invalid]="isFieldInvalid('nombre')"
+                [class.is-valid]="isFieldValid('nombre')">
+
+              <div class="invalid-feedback" *ngIf="isFieldInvalid('nombre')">
+                <span *ngIf="contactForm.get('nombre')?.errors?.['required']">
+                  El nombre es obligatorio
+                </span>
+                <span *ngIf="contactForm.get('nombre')?.errors?.['minlength']">
+                  Mínimo 3 caracteres
+                </span>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email *</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                formControlName="email"
+                [class.is-invalid]="isFieldInvalid('email')"
+                [class.is-valid]="isFieldValid('email')">
+
+              <div class="invalid-feedback" *ngIf="isFieldInvalid('email')">
+                <span *ngIf="contactForm.get('email')?.errors?.['required']">
+                  El email es obligatorio
+                </span>
+                <span *ngIf="contactForm.get('email')?.errors?.['email']">
+                  Email inválido
+                </span>
+              </div>
+            </div>
+
+            <!-- Mensaje -->
+            <div class="mb-3">
+              <label for="mensaje" class="form-label">Mensaje</label>
+              <textarea
+                class="form-control"
+                id="mensaje"
+                rows="4"
+                formControlName="mensaje"
+                placeholder="Escribe tu mensaje...">
+              </textarea>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="mb-3 form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="condiciones"
+                formControlName="aceptaCondiciones"
+                [class.is-invalid]="isFieldInvalid('aceptaCondiciones')">
+              <label class="form-check-label" for="condiciones">
+                Acepto las condiciones *
+              </label>
+
+              <div class="invalid-feedback" *ngIf="isFieldInvalid('aceptaCondiciones')">
+                Debes aceptar las condiciones
+              </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="d-flex gap-2">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="contactForm.invalid || isSubmitting">
+                {{ isSubmitting ? 'Enviando...' : 'Enviar mensaje' }}
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                (click)="resetForm()">
+                Limpiar
+              </button>
+            </div>
+          </form>
+
+          <!-- Mensaje de éxito -->
+          <div class="alert alert-success mt-3" *ngIf="submitSuccess">
+            ✅ ¡Mensaje enviado con éxito!
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

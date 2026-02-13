@@ -1,0 +1,38 @@
+header {
+  h1 {
+    color: var(--primary-color);
+    background-color: var(--bg-light);
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+
+  .nav-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+
+    &:hover, &.active {
+      color: var(--primary-hover);
+    }
+  }
+
+  .btn-outline-primary {
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.2s;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.2rem !important;
+  }
+
+  .navbar-brand img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}

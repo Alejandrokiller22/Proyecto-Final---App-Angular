@@ -1,0 +1,31 @@
+<header class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+  <div class="container-fluid">
+    <!-- Logo y nombre -->
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <img src="/logo.png" alt="Logo" width="50" height="50" class="me-2">
+      <h1 class="mb-0 h4">Alejandro Garcia-Mauriño Salas</h1>
+    </a>
+
+    <!-- Botón hamburguesa para móvil -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links de navegación -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <nav class="navbar-nav ms-auto">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">Sobre mí</a>
+        <a class="nav-link" routerLink="/portfolio" routerLinkActive="active">Proyectos</a>
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contacto</a>
+      </nav>
+
+      <!-- Botón de audio -->
+      <button
+        class="btn btn-outline-primary ms-3"
+        (click)="toggleAudio()"
+        [title]="audioEnabled ? 'Silenciar música' : 'Activar música'">
+        {{ audioEnabled ? '🔊 Silenciar' : '🔇 Activar Audio' }}
+      </button>
+    </div>
+  </div>
+</header>

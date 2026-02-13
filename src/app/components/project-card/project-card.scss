@@ -1,0 +1,40 @@
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+
+  .card-text {
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+
+  .btn {
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

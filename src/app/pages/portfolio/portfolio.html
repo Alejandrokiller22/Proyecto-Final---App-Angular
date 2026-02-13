@@ -1,0 +1,67 @@
+<section class="portfolio-section container my-5 fade-in">
+  <h2 class="text-center mb-5">Mis Proyectos</h2>
+
+  <!-- Filtro de proyectos -->
+  <div class="row mb-4">
+    <div class="col-md-6 offset-md-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar proyectos..."
+        [(ngModel)]="searchText"
+        (ngModelChange)="filterProjects()">
+    </div>
+  </div>
+
+  <!-- Botón para cambiar vista -->
+  <div class="text-center mb-4">
+    <button class="btn btn-secondary" (click)="toggleView()">
+      {{ showTable ? '📱 Ver tarjetas' : '📋 Ver tabla' }}
+    </button>
+  </div>
+
+  <!-- Vista de tarjetas -->
+  <div class="row" *ngIf="!showTable && filteredProjects.length > 0">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let project of filteredProjects">
+      <app-project-card
+        [project]="project"
+        (projectClicked)="onProjectClicked($event)">
+      </app-project-card>
+    </div>
+  </div>
+
+  <!-- Vista de tabla -->
+  <div *ngIf="showTable && filteredProjects.length > 0">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Proyecto</th>
+          <th>Descripción</th>
+          <th>Tecnologías</th>
+          <th>Enlace</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of filteredProjects">
+          <td><strong>{{ project.nombre }}</strong></td>
+          <td>{{ project.descripcion }}</td>
+          <td>
+            <span class="badge bg-secondary me-1" *ngFor="let tech of project.tecnologias">
+              {{ tech }}
+            </span>
+          </td>
+          <td>
+            <a [href]="project.enlace" target="_blank" class="btn btn-sm btn-primary">
+              Ver →
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Mensaje si no hay proyectos -->
+  <div class="alert alert-info text-center" *ngIf="filteredProjects.length === 0">
+    <p>No se encontraron proyectos.</p>
+  </div>
+</section>
